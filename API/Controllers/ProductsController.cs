@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using API.Data;
-using API.Entities;
+using Infrastructure.Data;
+using Core.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
