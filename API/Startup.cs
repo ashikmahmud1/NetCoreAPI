@@ -1,3 +1,4 @@
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,9 @@ namespace API
         {
             // dependency injection container
             // Any services we want to make it available inside our application needs to add here.
+            // services.AddTransient(); Too Short Life Time
+            // services.AddSingleton(); Too Long Life Time
+            services.AddScoped<IProductRepository, ProductRepository>(); // appropriate for injecting services to be available in our application
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
             services.AddSwaggerGen(c =>
