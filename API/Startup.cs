@@ -27,6 +27,8 @@ namespace API
             // services.AddTransient(); Too Short Life Time
             // services.AddSingleton(); Too Long Life Time
             services.AddScoped<IProductRepository, ProductRepository>(); // appropriate for injecting services to be available in our application
+            // Way to inject the generic service. As we don't know the type of the service
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
             services.AddSwaggerGen(c =>
