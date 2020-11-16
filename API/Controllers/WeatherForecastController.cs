@@ -9,6 +9,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)] // this setting is for swagger ui to exclude
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
