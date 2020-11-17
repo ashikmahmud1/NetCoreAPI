@@ -12,6 +12,7 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IProductRepository, ProductRepository>(); // appropriate for injecting services to be available in our application
+            services.AddScoped<IBasketRepository, BasketRepository>();
             // Way to inject the generic service. As we don't know the type of the service
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 
